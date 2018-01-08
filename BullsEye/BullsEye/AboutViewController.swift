@@ -18,6 +18,7 @@ class AboutViewController: UIViewController {
 
         // Do any additional setup after loading the view.
 
+        // Loading the about game web page
         if let url = Bundle.main.url(forResource: "BullsEye", withExtension: "html") {
             if let htmlData = try? Data(contentsOf: url) {
                 let baseURL = URL(fileURLWithPath: Bundle.main.bundlePath)

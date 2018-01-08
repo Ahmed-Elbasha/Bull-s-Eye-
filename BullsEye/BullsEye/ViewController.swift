@@ -69,10 +69,13 @@ class ViewController: UIViewController {
 //            difference = difference * -1
 //        }
 
+        // returns the diference of currentValue subtracted of targetValue.
         let difference = abs(currentValue - targetValue)
         var points = 100 - difference
 
         let title : String
+        
+        // giving bonus based on player's score.
         if difference == 0 {
             title = "Perfect"
             points += 100
@@ -87,10 +90,13 @@ class ViewController: UIViewController {
             title = "Not even close..."
         }
 
+        // Added the gained points in round to the overall score.
         score += points
 
+        // Updates the message text with the points value.
         let message = "You scored \(points) points."
 
+        // creates an UIAlertController to inform user to tell the user if he reached the goal or not.
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let action = UIAlertAction(title: "OK", style: .default, handler: { action in self.startNewRound()})
@@ -101,6 +107,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
+        // assigns the current value of slider to currentValue.
         currentValue = lroundf(slider.value)
     }
 
@@ -123,6 +130,8 @@ class ViewController: UIViewController {
         round = 0
         startNewRound()
 
+        // Adding CATransition animation to show the last score of previous player.
+        
         // Adding Crossfade Animation.
 
         // Instantiate CATransition Object.
